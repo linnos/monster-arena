@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Entity : MonoBehaviour, IDamageable
@@ -7,7 +8,7 @@ public class Entity : MonoBehaviour, IDamageable
     public int currentHealth { get; set; }
 
     private void Start() {
-        currentHealth = maxHealth;        
+        currentHealth = maxHealth;
     }
 
     public void Death()

@@ -1,10 +1,10 @@
 
 public class BaseState : IState
 {
-    protected Entity entity;
+    protected Player entity;
     protected StateMachineManager stateMachine;
 
-    public BaseState(Entity entity, StateMachineManager stateMachine){
+    public BaseState(Player entity, StateMachineManager stateMachine){
         this.entity = entity;
         this.stateMachine = stateMachine;
     }

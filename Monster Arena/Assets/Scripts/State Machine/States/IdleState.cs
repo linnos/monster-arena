@@ -1,14 +1,15 @@
+using Unity.VisualScripting;
+
 public class IdleState : BaseState
 {
-    public IdleState(Entity entity, StateMachineManager stateMachine) : base(entity, stateMachine)
+    public IdleState(Player entity, StateMachineManager stateMachine) : base(entity, stateMachine)
     {
+        
     }
 
     public override void Enter()
-    {
-        //Just testing this out. It works, but there might be a problem with it later on.
-        Player player  = entity as Player;
-        player.animator.Play("Idle");
+    {        
+        entity.animator.Play("Idle");
     }
 
     public override void Exit()
@@ -19,6 +20,9 @@ public class IdleState : BaseState
     public override void Update()
     {
         base.Update();
+        if(entity.movement.isMoving){
+            stateMachine.ChangeState(entity.runState);
+        }
     }
 
     public override void PhysicsUpdate()

@@ -3,6 +3,8 @@ using UnityEngine;
 public class Player : Entity
 {
     public Animator animator;
+    public CharacterController characterController;
+    public Movement movement;
 
     public StateMachineManager stateMachine { get; set; }
 
@@ -12,13 +14,15 @@ public class Player : Entity
     private void Awake()
     {
         stateMachine = new StateMachineManager();
-
+        
         idleState = new IdleState(this, stateMachine);
         runState = new RunState(this, stateMachine);
     }
     private void Start()
     {
         animator = this.GetComponent<Animator>();
+        characterController = this.GetComponent<CharacterController>();
+        movement = this.GetComponent<Movement>();
 
         stateMachine.Initialize(idleState);
     }
