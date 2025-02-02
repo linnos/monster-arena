@@ -590,6 +590,8 @@ MonoBehaviour:
   adjustX: 0
   adjustY: 1.7
   adjustZ: -3.5
+  directions: {x: 0, y: 0, z: 0}
+  cameraSpeed: 1.5
 --- !u!1001 &1205690203
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1089,11 +1091,11 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 1.76
-  m_Radius: 0.29
-  m_SlopeLimit: 45
+  m_Height: 1.8
+  m_Radius: 0.4
+  m_SlopeLimit: 50
   m_StepOffset: 0.3
-  m_SkinWidth: 0.029
+  m_SkinWidth: 0.04
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!114 &2060055743
@@ -1138,7 +1140,19 @@ MonoBehaviour:
     m_ActionId: 351f2ccd-1f9f-44bf-9bec-d62ac5c5f408
     m_ActionName: 'Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1166072461}
+        m_TargetAssemblyTypeName: CameraMovement, Assembly-CSharp
+        m_MethodName: Look_Event
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 6b444451-8a00-4d00-a97e-f47457f736a8
     m_ActionName: 'Player/Look[/Mouse/delta,/Pen/delta]'
   - m_PersistentCalls:
