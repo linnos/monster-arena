@@ -6,6 +6,7 @@ public class FollowBehind : MonoBehaviour
     private Vector3 targetTransform;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public float adjustX;
+    public float adjustY;
     public float adjustZ;
 
     public 
@@ -18,7 +19,7 @@ public class FollowBehind : MonoBehaviour
     void Update()
     {
         targetTransform.x = adjustX + target.transform.position.x;
-        targetTransform.y = this.transform.position.y;
+        targetTransform.y = adjustY + target.transform.position.y;
         targetTransform.z = adjustZ + target.transform.position.z;
         
         this.transform.position = targetTransform;

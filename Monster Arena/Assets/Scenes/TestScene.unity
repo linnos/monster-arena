@@ -568,6 +568,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 2060055735}
   adjustX: 0
+  adjustY: 1.5
   adjustZ: -4
 --- !u!1001 &1205690203
 PrefabInstance:
