@@ -29,6 +29,8 @@ public class Movement : MonoBehaviour
     }
     private void Update()
     {
+        //TODO: Change this to work with new camera system.
+        //Forward should move to where the camera is facing.
         HandleRotation();
 
 

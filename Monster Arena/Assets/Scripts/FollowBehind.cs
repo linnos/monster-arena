@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class FollowBehind : MonoBehaviour
 {
+    /*
+    ************
+    NOT USED ANYMORE DUE TO CAMERAMOVEMENT SCRIPT
+    ************
+    */
     public GameObject target;
     private Vector3 targetTransform;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
