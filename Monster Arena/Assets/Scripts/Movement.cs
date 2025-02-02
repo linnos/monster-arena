@@ -19,6 +19,8 @@ public class Movement : MonoBehaviour
 
     Vector2 input;
 
+    public Transform camera;
+
     private void Awake()
     {
         characterController = this.GetComponent<CharacterController>();
@@ -34,11 +36,17 @@ public class Movement : MonoBehaviour
         HandleRotation();
 
 
-        
-        if(isRunning){
+        if(isMoving){
+            moveDirection();
+        }
+
+
+        if (isRunning)
+        {
             characterController.Move(direction * stats.runSpeed * Time.deltaTime);
         }
-        else{
+        else
+        {
             characterController.Move(direction * Time.deltaTime);
         }
 
@@ -53,9 +61,10 @@ public class Movement : MonoBehaviour
         else if (context.performed)
         {
             input = context.ReadValue<Vector2>();
+            moveDirection();
 
-            direction.x = input.x * stats.movementSpeed;
-            direction.z = input.y * stats.movementSpeed;
+            // direction.x = input.x * stats.movementSpeed;
+            // direction.z = input.y * stats.movementSpeed;
         }
         else if (context.canceled)
         {
@@ -64,6 +73,15 @@ public class Movement : MonoBehaviour
             isMoving = false;
         }
 
+    }
+
+    private void moveDirection()
+    {
+        Vector3 newDirection = camera.forward * input.y;
+        newDirection = newDirection + camera.right * input.x;
+
+        direction.x = newDirection.x * stats.movementSpeed;
+        direction.z = newDirection.z * stats.movementSpeed;
     }
 
     public void Run_Event(InputAction.CallbackContext context)
@@ -116,7 +134,8 @@ public class Movement : MonoBehaviour
     }
 
 
-    public void Jump(){
+    public void Jump()
+    {
         direction.y += stats.jumpSpeed;
     }
 }
