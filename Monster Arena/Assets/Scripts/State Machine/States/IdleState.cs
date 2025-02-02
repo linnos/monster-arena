@@ -21,7 +21,7 @@ public class IdleState : BaseState
     {
         base.Update();
         if(entity.movement.isMoving){
-            stateMachine.ChangeState(entity.runState);
+            stateMachine.ChangeState(entity.walkState);
         }
     }
 

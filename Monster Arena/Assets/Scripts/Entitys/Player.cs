@@ -5,10 +5,14 @@ public class Player : Entity
     public Animator animator;
     public CharacterController characterController;
     public Movement movement;
+    public ScriptableObject player;
+
+    //State machine and states
 
     public StateMachineManager stateMachine { get; set; }
 
     public IdleState idleState { get; set; }
+    public WalkState walkState { get; set; }
     public RunState runState { get; set; }
 
     private void Awake()
@@ -16,6 +20,7 @@ public class Player : Entity
         stateMachine = new StateMachineManager();
         
         idleState = new IdleState(this, stateMachine);
+        walkState = new WalkState(this, stateMachine);
         runState = new RunState(this, stateMachine);
     }
     private void Start()

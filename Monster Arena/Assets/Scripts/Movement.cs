@@ -1,3 +1,5 @@
+using System;
+using NUnit.Framework;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -5,10 +7,17 @@ using UnityEngine.InputSystem;
 public class Movement : MonoBehaviour
 {
     CharacterController characterController;
-    public float movespeed = 0f;
-    private Vector3 direction = Vector3.zero;
-    private float rotationFactor = 1.0f;
+    public PlayerScriptableObject stats;
+    public Vector3 direction = Vector3.zero;
+    protected float rotationFactor = 1.0f;
     public bool isMoving = false;
+    public bool isRunning = false;
+
+    //Gravity variables
+    public float groundedGravity = -0.05f;
+    public float gravity = -9.8f;
+
+    Vector2 input;
 
     private void Awake()
     {
@@ -16,13 +25,22 @@ public class Movement : MonoBehaviour
     }
     private void Start()
     {
-
+        input = Vector3.zero;
     }
     private void Update()
     {
-        handleRotation();
-        characterController.Move(direction);
+        HandleRotation();
 
+
+        
+        if(isRunning){
+            characterController.Move(direction * stats.runSpeed * Time.deltaTime);
+        }
+        else{
+            characterController.Move(direction * Time.deltaTime);
+        }
+
+        HandleGravity();
     }
     public void Move_Event(InputAction.CallbackContext context)
     {
@@ -32,21 +50,38 @@ public class Movement : MonoBehaviour
         }
         else if (context.performed)
         {
-            Vector2 input = context.ReadValue<Vector2>();
-            direction.x = input.x * movespeed * Time.deltaTime;
-            direction.z = input.y * movespeed * Time.deltaTime;
+            input = context.ReadValue<Vector2>();
 
-
+            direction.x = input.x * stats.movementSpeed;
+            direction.z = input.y * stats.movementSpeed;
         }
         else if (context.canceled)
         {
-            direction = Vector3.zero;
+            direction.x = 0f;
+            direction.z = 0f;
             isMoving = false;
         }
 
     }
 
-    void handleRotation()
+    public void Run_Event(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            isRunning = true;
+
+        }
+        else if (context.performed)
+        {
+
+        }
+        else if (context.canceled)
+        {
+            isRunning = false;
+        }
+    }
+
+    void HandleRotation()
     {
         Vector3 positionToLookAt;
         //the change in position our character should point to
@@ -64,5 +99,17 @@ public class Movement : MonoBehaviour
         }
 
 
+    }
+
+    void HandleGravity()
+    {
+        if (characterController.isGrounded)
+        {
+            direction.y = groundedGravity;
+        }
+        else
+        {
+            direction.y += gravity * Time.deltaTime;
+        }
     }
 }
