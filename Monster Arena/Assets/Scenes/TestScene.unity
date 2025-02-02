@@ -429,6 +429,7 @@ GameObject:
   - component: {fileID: 1166072456}
   - component: {fileID: 1166072459}
   - component: {fileID: 1166072460}
+  - component: {fileID: 1166072461}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -561,7 +562,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1166072455}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4989928383ef7aa44bd600cf986aca07, type: 3}
   m_Name: 
@@ -570,6 +571,22 @@ MonoBehaviour:
   adjustX: 0
   adjustY: 1.5
   adjustZ: -4
+  speedH: 2
+  speedV: 2
+--- !u!114 &1166072461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166072455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1231dfac919fab419d04dac33276b91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 1166072457}
+  target: {fileID: 2060055747}
 --- !u!1001 &1205690203
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1250,6 +1267,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpSpeed: 25
   isJumpPressed: 0
+--- !u!4 &2060055747 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1a7d7a89df2f441428d547f746fb8d23, type: 3}
+  m_PrefabInstance: {fileID: 525234031}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2136476205
 GameObject:
   m_ObjectHideFlags: 0
