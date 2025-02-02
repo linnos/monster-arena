@@ -14,6 +14,7 @@ public class Player : Entity
     public IdleState idleState { get; set; }
     public WalkState walkState { get; set; }
     public RunState runState { get; set; }
+    public JumpState jumpState {get; set; }
 
     private void Awake()
     {
@@ -22,6 +23,7 @@ public class Player : Entity
         idleState = new IdleState(this, stateMachine);
         walkState = new WalkState(this, stateMachine);
         runState = new RunState(this, stateMachine);
+        jumpState = new JumpState(this, stateMachine);
     }
     private void Start()
     {

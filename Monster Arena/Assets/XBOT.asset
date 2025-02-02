@@ -15,4 +15,4 @@ MonoBehaviour:
   health: 100
   movementSpeed: 6
   runSpeed: 1.5
-  jumpSpeed: 10
+  jumpSpeed: 4.5

@@ -24,6 +24,9 @@ public class RunState : BaseState
         if(!entity.movement.isRunning){
             stateMachine.ChangeState(entity.walkState);
         }
+        if(!entity.characterController.isGrounded){
+            stateMachine.ChangeState(entity.jumpState);
+        }
     }
 
     public override void PhysicsUpdate()

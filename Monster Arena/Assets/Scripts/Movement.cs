@@ -112,4 +112,9 @@ public class Movement : MonoBehaviour
             direction.y += gravity * Time.deltaTime;
         }
     }
+
+
+    public void Jump(){
+        direction.y += stats.jumpSpeed;
+    }
 }
