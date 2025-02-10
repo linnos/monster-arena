@@ -10,7 +10,7 @@ public class IdleState : BaseState
 
     public override void Enter()
     {
-        entity.animator.Play("Idle");
+        base.Enter();
     }
 
     public override void Exit()

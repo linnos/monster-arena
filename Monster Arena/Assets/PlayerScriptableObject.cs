@@ -8,4 +8,6 @@ public class PlayerScriptableObject : ScriptableObject
     public float runSpeed;
     public float jumpSpeed;
 
+    public int numberOfBasicAttacks;
+
 }

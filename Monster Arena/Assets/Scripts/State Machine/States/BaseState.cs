@@ -1,4 +1,6 @@
 
+using System;
+
 public class BaseState : IState
 {
     protected Player entity;
@@ -11,7 +13,6 @@ public class BaseState : IState
 
     public virtual void Enter()
     {
-
     }
 
     public virtual void Exit()

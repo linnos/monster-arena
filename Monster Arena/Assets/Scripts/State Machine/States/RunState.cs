@@ -7,7 +7,6 @@ public class RunState : BaseState
     public override void Enter()
     {
         base.Enter();
-        entity.animator.Play("Run");
     }
 
     public override void Exit()

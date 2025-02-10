@@ -4,10 +4,11 @@ using UnityEngine;
 public class Player : Entity
 {
     public Animator animator;
+    public AnimationController animationController;
     public CharacterController characterController;
     public Movement movement;
     public Combat combat;
-    public ScriptableObject player;
+    public PlayerScriptableObject player;
     public bool animationComplete = false;
 
     //State machine and states
@@ -18,7 +19,7 @@ public class Player : Entity
     public WalkState walkState { get; set; }
     public RunState runState { get; set; }
     public JumpState jumpState {get; set; }
-    public AttackState attackState { get; set; }
+    public Attack1State attackState { get; set; }
     public DodgeState dodgeState { get; set; }
 
     private void Awake()
@@ -29,17 +30,20 @@ public class Player : Entity
         walkState = new WalkState(this, stateMachine);
         runState = new RunState(this, stateMachine);
         jumpState = new JumpState(this, stateMachine);
-        attackState = new AttackState(this, stateMachine);
+        attackState = new Attack1State(this, stateMachine);
         dodgeState = new DodgeState(this, stateMachine);
     }
     private void Start()
     {
         animator = this.GetComponent<Animator>();
+        animationController = this.GetComponent<AnimationController>();
         characterController = this.GetComponent<CharacterController>();
         movement = this.GetComponent<Movement>();
         combat = this.GetComponent<Combat>();
 
+        stateMachine.OnStateChange += animationController.PlayAnimation;
         stateMachine.Initialize(idleState);
+        
     }
 
     private void Update() {

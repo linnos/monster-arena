@@ -51,6 +51,8 @@ public class CameraMovement : MonoBehaviour
 
     public void Look_Event(InputAction.CallbackContext context)
     {
+        //TODO: find a way to change cameraXspeed and cameraYspeed so that
+        //camera movement feels more fluid and you can adjust it.
         if (context.started)
         {
            

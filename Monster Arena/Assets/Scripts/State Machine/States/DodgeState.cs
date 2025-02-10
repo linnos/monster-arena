@@ -11,7 +11,6 @@ public class DodgeState : BaseState
     {
         base.Enter();
         entity.combat.canDodge = false;
-        entity.animator.Play("Dodge");
     }
 
     public override void Exit()

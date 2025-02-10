@@ -16,3 +16,4 @@ MonoBehaviour:
   movementSpeed: 6
   runSpeed: 1.5
   jumpSpeed: 4.5
+  numberOfBasicAttacks: 4

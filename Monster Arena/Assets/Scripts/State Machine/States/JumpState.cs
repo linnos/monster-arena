@@ -7,7 +7,6 @@ public class JumpState : BaseState
     public override void Enter()
     {
         base.Enter();
-        entity.animator.Play("Jump");
         entity.movement.Jump();
     }
 

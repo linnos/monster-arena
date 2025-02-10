@@ -7,7 +7,6 @@ public class WalkState : BaseState
     public override void Enter()
     {
         base.Enter();
-        entity.animator.Play("Walk");
     }
 
     public override void Exit()
