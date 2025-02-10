@@ -30,7 +30,7 @@ public class Attack1State : BaseState
         {
             stateMachine.ChangeState(entity.idleState);
         }
-        if (entity.combat.attackingPressed)
+        if (entity.combat.attackingPressed && entity.combat.canDodge)
         {
             attackCounter++;
             attackCounter = Math.Clamp(attackCounter, 1, entity.player.numberOfBasicAttacks);
