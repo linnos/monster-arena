@@ -2034,11 +2034,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: 89b4e5db5ca4a1349affdabc5a8311e9, type: 2}
+  camera: {fileID: 1166072458}
+  gravity: {fileID: 0}
   direction: {x: 0, y: 0, z: 0}
   isMoving: 0
   isRunning: 0
-  camera: {fileID: 1166072458}
-  gravity: {fileID: 0}
 --- !u!114 &2060055746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2073,6 +2073,10 @@ MonoBehaviour:
   attackingPressed: 0
   attackingReleased: 1
   dodgePressed: 0
+  dodgeableStates:
+  - Idle
+  - Walk
+  - Run
 --- !u!114 &2060055749
 MonoBehaviour:
   m_ObjectHideFlags: 0

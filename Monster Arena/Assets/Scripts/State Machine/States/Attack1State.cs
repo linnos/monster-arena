@@ -14,8 +14,7 @@ public class Attack1State : BaseState
     {
         base.Enter();
         attackCounter++;
-
-        entity.combat.attackingPressed = false;
+        SetCombatVariables();
     }
 
     public override void Exit()
@@ -36,12 +35,18 @@ public class Attack1State : BaseState
             attackCounter++;
             attackCounter = Math.Clamp(attackCounter, 1, entity.player.numberOfBasicAttacks);
             stateMachine.ChangeStateEventString($"Attack{attackCounter}");
-            entity.combat.attackingPressed = false;
+            SetCombatVariables();
         }
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
+    }
+
+    
+    private void SetCombatVariables()
+    {
+        entity.combat.attackingPressed = false;
     }
 }

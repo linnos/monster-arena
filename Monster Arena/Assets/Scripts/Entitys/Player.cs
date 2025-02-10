@@ -41,12 +41,14 @@ public class Player : Entity
         combat = this.GetComponent<Combat>();
 
         stateMachine.OnStateChange += animationController.PlayAnimation;
+        stateMachine.OnStateChange += combat.CanDodge;
+        combat.OnDodge += dodge;
         stateMachine.Initialize(idleState);
         
     }
 
     private void Update() {
-        dodge();
+        // dodge();
         stateMachine.currentState.Update();
     }
 

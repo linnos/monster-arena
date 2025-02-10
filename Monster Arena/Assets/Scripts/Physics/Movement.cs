@@ -6,16 +6,13 @@ public class Movement : MonoBehaviour
 {
     CharacterController characterController;
     public PlayerScriptableObject stats;
+    public Transform camera;
+    public Gravity gravity;
     public Vector3 direction = Vector3.zero;
+    Vector2 input;
     protected float rotationFactor = 1.0f;
     public bool isMoving = false;
     public bool isRunning = false;
-
-    Vector2 input;
-
-    public Transform camera;
-
-    public Gravity gravity;
 
     private void Awake()
     {
@@ -33,7 +30,8 @@ public class Movement : MonoBehaviour
         HandleRotation();
 
 
-        if(isMoving){
+        if (isMoving)
+        {
             moveDirection();
         }
 

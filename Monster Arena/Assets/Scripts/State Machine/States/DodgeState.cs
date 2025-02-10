@@ -10,7 +10,6 @@ public class DodgeState : BaseState
     public override void Enter()
     {
         base.Enter();
-        entity.combat.canDodge = false;
     }
 
     public override void Exit()
