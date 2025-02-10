@@ -16,13 +16,12 @@ public class DodgeState : BaseState
     public override void Exit()
     {
         base.Exit();
-        entity.animationComplete = false;
     }
 
     public override void Update()
     {
         base.Update();
-        if(entity.animationComplete){
+        if( entity.animationController.animationComplete){
             stateMachine.ChangeState(entity.idleState);
         }
         

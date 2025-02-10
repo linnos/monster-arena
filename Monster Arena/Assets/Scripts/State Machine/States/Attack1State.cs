@@ -14,14 +14,12 @@ public class Attack1State : BaseState
     {
         base.Enter();
         attackCounter++;
-        
-        // entity.animator.Play($"Attack{attackCounter}");
+
         entity.combat.attackingPressed = false;
     }
 
     public override void Exit()
     {
-        entity.animationComplete = false;
         attackCounter = 0;
         base.Exit();
     }
@@ -29,7 +27,7 @@ public class Attack1State : BaseState
     public override void Update()
     {
         base.Update();
-        if (entity.animationComplete)
+        if ( entity.animationController.animationComplete)
         {
             stateMachine.ChangeState(entity.idleState);
         }
@@ -38,7 +36,6 @@ public class Attack1State : BaseState
             attackCounter++;
             attackCounter = Math.Clamp(attackCounter, 1, entity.player.numberOfBasicAttacks);
             stateMachine.ChangeStateEventString($"Attack{attackCounter}");
-            // entity.animator.Play($"Attack{attackCounter}");
             entity.combat.attackingPressed = false;
         }
     }

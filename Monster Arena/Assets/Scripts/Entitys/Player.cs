@@ -9,7 +9,6 @@ public class Player : Entity
     public Movement movement;
     public Combat combat;
     public PlayerScriptableObject player;
-    public bool animationComplete = false;
 
     //State machine and states
 
@@ -53,10 +52,6 @@ public class Player : Entity
 
     private void FixedUpdate() {
         stateMachine.currentState.PhysicsUpdate();
-    }
-
-    public void AnimationComplete() {
-        animationComplete = true;
     }
 
     public void dodge(){
