@@ -976,6 +976,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1a7d7a89df2f441428d547f746fb8d23, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2060055749}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1a7d7a89df2f441428d547f746fb8d23, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2060055750}
   m_SourcePrefab: {fileID: 100100000, guid: 1a7d7a89df2f441428d547f746fb8d23, type: 3}
 --- !u!1 &768201078
 GameObject:
@@ -1827,7 +1830,6 @@ MonoBehaviour:
   movement: {fileID: 0}
   combat: {fileID: 0}
   player: {fileID: 11400000, guid: 89b4e5db5ca4a1349affdabc5a8311e9, type: 2}
-  animationComplete: 0
 --- !u!143 &2060055742
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2035,9 +2037,8 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   isMoving: 0
   isRunning: 0
-  groundedGravity: -0.05
-  gravity: -9.8
   camera: {fileID: 1166072458}
+  gravity: {fileID: 0}
 --- !u!114 &2060055746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2085,6 +2086,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+  currAnim: 
+  animationComplete: 0
+  canTransition: 0
+--- !u!114 &2060055750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060055735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68b997d0389c05649a7cf36d5ce23a35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundedGravity: -0.05
+  gravity: -9.8
+  maxGravity: -25
+  accelerationFactor: 1.2
 --- !u!1 &2136476205
 GameObject:
   m_ObjectHideFlags: 0

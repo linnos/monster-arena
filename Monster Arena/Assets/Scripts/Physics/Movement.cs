@@ -11,17 +11,16 @@ public class Movement : MonoBehaviour
     public bool isMoving = false;
     public bool isRunning = false;
 
-    //Gravity variables
-    public float groundedGravity = -0.05f;
-    public float gravity = -9.8f;
-
     Vector2 input;
 
     public Transform camera;
 
+    public Gravity gravity;
+
     private void Awake()
     {
         characterController = this.GetComponent<CharacterController>();
+        gravity = this.GetComponent<Gravity>();
     }
     private void Start()
     {
@@ -48,7 +47,7 @@ public class Movement : MonoBehaviour
             characterController.Move(direction * Time.deltaTime);
         }
 
-        HandleGravity();
+        gravity.HandleGravity(ref direction, characterController);
     }
     public void Move_Event(InputAction.CallbackContext context)
     {
@@ -118,19 +117,6 @@ public class Movement : MonoBehaviour
 
 
     }
-
-    void HandleGravity()
-    {
-        if (characterController.isGrounded)
-        {
-            direction.y = groundedGravity;
-        }
-        else
-        {
-            direction.y += gravity * Time.deltaTime;
-        }
-    }
-
 
     public void Jump()
     {
