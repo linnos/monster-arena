@@ -1,4 +1,6 @@
 
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,6 +15,9 @@ public class Movement : MonoBehaviour
     protected float rotationFactor = 1.0f;
     public bool isMoving = false;
     public bool isRunning = false;
+    public bool canMove { get; set; } = true;
+    //States that you are not able to move in. Similar to combat scripts dodgeable states
+    public List<string> nonMoveableStates;
 
     private void Awake()
     {
@@ -25,8 +30,10 @@ public class Movement : MonoBehaviour
     }
     private void Update()
     {
-        //TODO: Change this to work with new camera system.
-        //Forward should move to where the camera is facing.
+        if(!canMove){
+            return;
+        }
+
         HandleRotation();
 
 
@@ -119,5 +126,15 @@ public class Movement : MonoBehaviour
     public void Jump()
     {
         direction.y += stats.jumpSpeed;
+    }
+
+    //Checks the string for states that are not able to move in. Also checks for "true" so that it can be set in the animation event.
+    public void CanMove(string state)
+    {
+        if(state.ToLower() == "true"){
+            canMove = true;
+            return;
+        }
+        canMove = !nonMoveableStates.Contains(Regex.Replace(state,"[0-9]", ""));
     }
 }

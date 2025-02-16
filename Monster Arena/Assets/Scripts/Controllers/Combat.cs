@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 
 public class Combat : MonoBehaviour
 {
-    //TODO: Need to find a way to decouple this from the AttackState.
 
     //Keep track of buttons that are pressed
     public bool attackingPressed = false;
@@ -50,14 +49,15 @@ public class Combat : MonoBehaviour
     {
         if (context.started)
         {
-        }
-        else if (context.performed)
-        {
             dodgePressed = true;
             if (canDodge)
             {
                 OnDodge?.Invoke();
             }
+        }
+        else if (context.performed)
+        {
+            
         }
         else if (context.canceled)
         {
@@ -65,7 +65,7 @@ public class Combat : MonoBehaviour
         }
     }
 
-    //Checks the string for states that are able to dodge. Also checks for true.
+    //Checks the string for states that are able to dodge. Also checks for "true" so that it can be set in the animation event.
     //Can also be set in an animation event such as for attacks. Just set to true.
     public void CanDodge(string state)
     {
@@ -75,8 +75,4 @@ public class Combat : MonoBehaviour
         }
         canDodge = dodgeableStates.Contains(state);
     }
-
-    // public void CantDodge(){
-    //     canDodge = false;
-    // }
 }

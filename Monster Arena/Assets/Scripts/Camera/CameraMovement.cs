@@ -8,9 +8,14 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] public Transform target;
     private Vector3 previousPosition;
 
+    //Adjust position of camera
     public float adjustX = 0;
     public float adjustY = 0;
     public float adjustZ = -2;
+
+    //Adjust camera x and y speed individually
+    public float adjustXSpeed = 1;
+    public float adjustYSpeed = 1;
 
     private float _rotationXAxis;
     private float _rotationYAxis;
@@ -27,7 +32,7 @@ public class CameraMovement : MonoBehaviour
 
         camera.transform.position = target.position;
         //Rotate around x axis. Vertical.
-        _rotationXAxis = Mathf.Clamp(_rotationXAxis + direction.y * cameraSpeed, -15, 45);
+        _rotationXAxis = Mathf.Clamp(_rotationXAxis + direction.y * cameraSpeed * adjustYSpeed, -15, 45);
 
         //This does a cool tilt effect like from an FPS. Leaving here just in case.
         // transform.rotation = Quaternion.Euler(0, 0, _rotation);
@@ -36,7 +41,7 @@ public class CameraMovement : MonoBehaviour
         // transform.rotation = Quaternion.Euler(_rotation, 0, 0);
         
         //Rotate around y axis. Horizontal
-        _rotationYAxis = _rotationYAxis + -direction.x * cameraSpeed;
+        _rotationYAxis = _rotationYAxis + -direction.x * cameraSpeed * adjustXSpeed;
         
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(_rotationXAxis, _rotationYAxis, 0), cameraSpeed);
         // Quaternion.Euler(_rotationXAxis, _rotationYAxis, 0);
@@ -51,8 +56,7 @@ public class CameraMovement : MonoBehaviour
 
     public void Look_Event(InputAction.CallbackContext context)
     {
-        //TODO: find a way to change cameraXspeed and cameraYspeed so that
-        //camera movement feels more fluid and you can adjust it.
+        //TODO: find a way to make camera movement feel more fluid.
         if (context.started)
         {
            

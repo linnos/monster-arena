@@ -1331,6 +1331,8 @@ MonoBehaviour:
   adjustX: 0
   adjustY: 1.7
   adjustZ: -3.5
+  adjustXSpeed: 1
+  adjustYSpeed: 1
   directions: {x: 0, y: 0, z: 0}
   cameraSpeed: 1.5
 --- !u!1001 &1205690203
@@ -2039,6 +2041,10 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   isMoving: 0
   isRunning: 0
+  nonMoveableStates:
+  - Attack
+  - Attack
+  - Dodge
 --- !u!114 &2060055746
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class AnimationController : MonoBehaviour
@@ -7,7 +8,7 @@ public class AnimationController : MonoBehaviour
     public bool animationComplete = false;
     public bool canTransition = false;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     private void Awake()
     {
         animator = this.GetComponent<Animator>();
@@ -16,17 +17,10 @@ public class AnimationController : MonoBehaviour
     private void Update()
     {
         animationComplete = IsAnimationComplete();
-
-    }
-    private void Start()
-    {
-
     }
 
     public void PlayAnimation(string animName)
     {
-
-
         if (currAnim != animName)
         {
             currAnim = animName;
@@ -40,6 +34,10 @@ public class AnimationController : MonoBehaviour
     }
     
     public bool IsAnimationComplete(){
-        return animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !animator.IsInTransition(0);
+        if(animator.IsInTransition(0)){
+            return false;
+        }
+        Debug.Log(animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1);
+        return animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !animator.GetCurrentAnimatorStateInfo(0).loop;
     }
 }

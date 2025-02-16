@@ -42,13 +42,13 @@ public class Player : Entity
 
         stateMachine.OnStateChange += animationController.PlayAnimation;
         stateMachine.OnStateChange += combat.CanDodge;
+        stateMachine.OnStateChange += movement.CanMove;
         combat.OnDodge += dodge;
         stateMachine.Initialize(idleState);
         
     }
 
     private void Update() {
-        // dodge();
         stateMachine.currentState.Update();
     }
 

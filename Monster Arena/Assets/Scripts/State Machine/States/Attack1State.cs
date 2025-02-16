@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class Attack1State : BaseState
 {
-    //TODO: Need to find a way to decouple this from the combat class.
+    //TODO: Find a way to make this able to go into a different combos
+    //One idea is to use the attack counter at between 0-9 for 1 set of combo attacks
+    //then, for every other 10's it goes into a different combo string. All ending at 9.
+    //EX. Combo 1 = 1, 2, 3, 9
+    // Combo 2 = 10, 11, 12, 19
+    // Combo 1 into Combo 2 = 1, 2, 12, 19
     private int attackCounter = 0;
+
+
     public Attack1State(Player entity, StateMachineManager stateMachine) : base(entity, stateMachine)
     {
     }
@@ -30,6 +37,8 @@ public class Attack1State : BaseState
         {
             stateMachine.ChangeState(entity.idleState);
         }
+        //Checks if you can dodge as well since the timing is the same. 
+        //If you can dodge, you can also go to the next attack.
         if (entity.combat.attackingPressed && entity.combat.canDodge)
         {
             attackCounter++;
