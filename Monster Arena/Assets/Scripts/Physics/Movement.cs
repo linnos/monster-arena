@@ -149,7 +149,7 @@ public class Movement : MonoBehaviour
             return;
         }
         canMove = !nonMoveableStates.Contains(Regex.Replace(state,"[0-9]", ""));
-        Debug.Log($"Can move : {canMove}");
+        Debug.Log($"Can move : {canMove} in animation state: {state.ToLower()}");
         if(canMove){
             lockMoveDirection = false;
         }

@@ -25,7 +25,7 @@ public class IdleState : BaseState
         {
             stateMachine.ChangeState(entity.walkState);
         }
-        if(entity.combat.attackingPressed){
+        else if(entity.combat.attackingPressed){
             stateMachine.ChangeState(entity.attackState);
         }
 
