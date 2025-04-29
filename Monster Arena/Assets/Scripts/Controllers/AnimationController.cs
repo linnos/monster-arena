@@ -37,7 +37,7 @@ public class AnimationController : MonoBehaviour
         if(animator.IsInTransition(0)){
             return false;
         }
-        Debug.Log(animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1);
+
         return animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !animator.GetCurrentAnimatorStateInfo(0).loop;
     }
 }

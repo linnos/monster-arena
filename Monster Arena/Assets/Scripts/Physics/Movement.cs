@@ -1,6 +1,7 @@
 
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -16,6 +17,8 @@ public class Movement : MonoBehaviour
     public bool isMoving = false;
     public bool isRunning = false;
     public bool canMove { get; set; } = true;
+    public bool lockMoveDirection { get; set; } = false;
+
     //States that you are not able to move in. Similar to combat scripts dodgeable states
     public List<string> nonMoveableStates;
 
@@ -28,11 +31,10 @@ public class Movement : MonoBehaviour
     {
         input = Vector3.zero;
     }
+
+    //TODO: Need to be able to dodge and jump while keeping momentum, but not movement.
     private void Update()
     {
-        if(!canMove){
-            return;
-        }
 
         HandleRotation();
 
@@ -56,6 +58,10 @@ public class Movement : MonoBehaviour
     }
     public void Move_Event(InputAction.CallbackContext context)
     {
+        if(lockMoveDirection){
+            return;
+        }
+
         if (context.started)
         {
             isMoving = true;
@@ -64,9 +70,6 @@ public class Movement : MonoBehaviour
         {
             input = context.ReadValue<Vector2>();
             moveDirection();
-
-            // direction.x = input.x * stats.movementSpeed;
-            // direction.z = input.y * stats.movementSpeed;
         }
         else if (context.canceled)
         {
@@ -79,6 +82,10 @@ public class Movement : MonoBehaviour
 
     private void moveDirection()
     {
+        
+        if(lockMoveDirection || !canMove){
+            return;
+        }
         Vector3 newDirection = camera.forward * input.y;
         newDirection = newDirection + camera.right * input.x;
 
@@ -105,6 +112,10 @@ public class Movement : MonoBehaviour
 
     void HandleRotation()
     {
+        if(lockMoveDirection || !canMove){
+            return;
+        }
+
         Vector3 positionToLookAt;
         //the change in position our character should point to
         positionToLookAt.x = direction.x;
@@ -125,6 +136,8 @@ public class Movement : MonoBehaviour
 
     public void Jump()
     {
+        lockMoveDirection = true;
+        isRunning = false;
         direction.y += stats.jumpSpeed;
     }
 
@@ -136,5 +149,13 @@ public class Movement : MonoBehaviour
             return;
         }
         canMove = !nonMoveableStates.Contains(Regex.Replace(state,"[0-9]", ""));
+        Debug.Log($"Can move : {canMove}");
+        if(canMove){
+            lockMoveDirection = false;
+        }
+    }
+
+    public void Dodge(){
+        lockMoveDirection = true;
     }
 }

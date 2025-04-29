@@ -2045,6 +2045,7 @@ MonoBehaviour:
   - Attack
   - Attack
   - Dodge
+  - Jump
 --- !u!114 &2060055746
 MonoBehaviour:
   m_ObjectHideFlags: 0
