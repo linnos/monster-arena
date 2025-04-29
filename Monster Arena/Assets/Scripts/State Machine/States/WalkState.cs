@@ -20,7 +20,7 @@ public class WalkState : BaseState
         if(!entity.movement.isMoving){
             stateMachine.ChangeState(entity.idleState);
         }
-        if(entity.movement.isRunning){
+        else if(entity.movement.isRunning){
             stateMachine.ChangeState(entity.runState);
         }
     }
