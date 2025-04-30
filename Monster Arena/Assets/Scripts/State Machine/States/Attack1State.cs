@@ -22,11 +22,13 @@ public class Attack1State : BaseState
         base.Enter();
         attackCounter++;
         SetCombatVariables();
+        entity.animator.applyRootMotion = true;
     }
 
     public override void Exit()
     {
         attackCounter = 0;
+        entity.animator.applyRootMotion = false;
         base.Exit();
     }
 

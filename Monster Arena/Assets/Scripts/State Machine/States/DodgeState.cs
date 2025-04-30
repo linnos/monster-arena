@@ -10,11 +10,13 @@ public class DodgeState : BaseState
 
     public override void Enter()
     {
+        entity.animator.applyRootMotion = true;
         base.Enter();
     }
 
     public override void Exit()
     {
+        entity.animator.applyRootMotion = false;
         base.Exit();
     }
 
