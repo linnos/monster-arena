@@ -1666,6 +1666,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <maxHealth>k__BackingField: 100
   <currentHealth>k__BackingField: 0
+  damageTextPrefab: {fileID: 6008231357519769433, guid: b25b3221e920a4f4dbb0a687fe9ca207, type: 3}
 --- !u!54 &1302190686
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1991,6 +1992,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <maxHealth>k__BackingField: 100
   <currentHealth>k__BackingField: 0
+  damageTextPrefab: {fileID: 0}
   animator: {fileID: 0}
   animationController: {fileID: 0}
   characterController: {fileID: 0}
