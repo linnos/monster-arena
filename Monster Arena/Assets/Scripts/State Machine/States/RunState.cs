@@ -26,6 +26,9 @@ public class RunState : BaseState
         else if(!entity.characterController.isGrounded){
             stateMachine.ChangeState(entity.jumpState);
         }
+        else if(entity.combat.attackingPressed){
+            stateMachine.ChangeState(entity.dashAttackState);
+        }
     }
 
     public override void PhysicsUpdate()

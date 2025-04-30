@@ -20,6 +20,7 @@ public class Player : Entity
     public JumpState jumpState {get; set; }
     public Attack1State attackState { get; set; }
     public DodgeState dodgeState { get; set; }
+    public DashAttackState dashAttackState { get; set; }
 
     private void Awake()
     {
@@ -31,6 +32,7 @@ public class Player : Entity
         jumpState = new JumpState(this, stateMachine);
         attackState = new Attack1State(this, stateMachine);
         dodgeState = new DodgeState(this, stateMachine);
+        dashAttackState = new DashAttackState(this, stateMachine);
     }
     private void Start()
     {

@@ -130,14 +130,11 @@ public class Movement : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(positionToLookAt);
             transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, rotationFactor);
         }
-
-
     }
 
     public void Jump()
     {
         lockMoveDirection = true;
-        isRunning = false;
         direction.y += stats.jumpSpeed;
     }
 
@@ -149,7 +146,7 @@ public class Movement : MonoBehaviour
             return;
         }
         canMove = !nonMoveableStates.Contains(Regex.Replace(state,"[0-9]", ""));
-        Debug.Log($"Can move : {canMove} in animation state: {state.ToLower()}");
+        // Debug.Log($"Can move : {canMove} in animation state: {state.ToLower()}");
         if(canMove){
             lockMoveDirection = false;
         }

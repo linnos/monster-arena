@@ -1800,7 +1800,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2060055735}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 1a7d7a89df2f441428d547f746fb8d23, type: 3}
   m_Controller: {fileID: 9100000, guid: b1330a94df62d864495ddaf3a45d5278, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -1808,7 +1808,18 @@ Animator:
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_AnimatePhysics: 0
-  m_WarningMessage: 
+  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
+    are already bound by a Humanoid avatar. These transforms can only be changed
+    by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
+    'mixamorig:LeftHandThumb2'\n\tTransform 'mixamorig:LeftHandIndex1'\n\tTransform
+    'mixamorig:LeftHandPinky2'\n\tTransform 'mixamorig:RightHandRing2'\n\tTransform
+    'mixamorig:Spine1'\n\tTransform 'mixamorig:LeftToeBase'\n\tTransform 'mixamorig:LeftHandThumb3'\n\tTransform
+    'mixamorig:RightArm'\n\tand more ...\n\tFrom animation clip 'Great Sword Idle'\n\tFrom
+    animation clip 'Convulsing'\n\tFrom animation clip 'Sword And Shield Run'\n\tFrom
+    animation clip 'Standing'\n\tFrom animation clip 'Great Sword Run'\n\tFrom animation
+    clip 'Corkscrew Kip Up'\n\tFrom animation clip 'Standing Dive Forward'\n\tFrom
+    animation clip 'Jump'\n\tFrom animation clip 'Sword And Shield Slash'\n\tFrom
+    animation clip 'Sword And Shield Attack'\n\tand more ..."
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
