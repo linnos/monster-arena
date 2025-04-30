@@ -5,6 +5,8 @@ public class Entity : MonoBehaviour, IDamageable
 {
     [field: SerializeField]
     public int maxHealth { get; set; } = 100;
+
+    [field: SerializeField]
     public int currentHealth { get; set; }
 
     private void Start() {

@@ -29,6 +29,7 @@ public class Attack1State : BaseState
     {
         attackCounter = 0;
         entity.animator.applyRootMotion = false;
+        entity.swordCollider.enabled = false;
         base.Exit();
     }
 
@@ -59,5 +60,9 @@ public class Attack1State : BaseState
     private void SetCombatVariables()
     {
         entity.combat.attackingPressed = false;
+        //toggle the collider to clear it's trigger list
+        entity.swordTriggerDamage.enabled = false;
+        entity.swordTriggerDamage.enabled = true;
+        entity.swordCollider.enabled = true;
     }
 }

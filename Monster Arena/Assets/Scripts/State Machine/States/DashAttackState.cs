@@ -6,11 +6,15 @@ public class DashAttackState : BaseState
 
     public override void Enter()
     {
+        entity.kickCollider.enabled = true;
+        entity.kickDamage.enabled = true;
         base.Enter();
     }
 
     public override void Exit()
     {
+        entity.kickCollider.enabled = false;
+        entity.kickDamage.enabled = false;
         base.Exit();
     }
 

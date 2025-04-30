@@ -9,6 +9,12 @@ public class Player : Entity
     public Movement movement;
     public Combat combat;
     public PlayerScriptableObject player;
+    #region colliders
+    public TriggerDamage swordTriggerDamage;
+    public Collider swordCollider;
+    public TriggerDamage kickDamage;
+    public Collider kickCollider;
+    #endregion
 
     //State machine and states
 
