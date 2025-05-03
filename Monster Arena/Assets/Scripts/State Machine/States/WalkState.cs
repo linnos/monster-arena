@@ -20,7 +20,7 @@ public class WalkState : BaseState
         if(!entity.movement.isMoving){
             stateMachine.ChangeState(entity.idleState);
         }
-        else if(entity.movement.isRunning){
+        else if(entity.movement.isRunning && entity.staminaManager.UseStamina(entity.player.runStaminaCost)){
             stateMachine.ChangeState(entity.runState);
         }
     }

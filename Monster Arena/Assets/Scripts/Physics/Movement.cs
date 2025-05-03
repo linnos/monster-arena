@@ -19,11 +19,18 @@ public class Movement : MonoBehaviour
     public bool canMove { get; set; } = true;
     public bool lockMoveDirection { get; set; } = false;
 
+    //Trying out this playing information class as a way to get information about the player without having to pass it around everywhere.
+    public PlayerInformation playerInformation;
+
     //States that you are not able to move in. Similar to combat scripts dodgeable states
     public List<string> nonMoveableStates;
 
     private void Awake()
     {
+        if(!playerInformation){
+            throw new System.Exception("PlayerInformation is not set in the inspector. Please set it to the player object.");
+        }
+        
         characterController = this.GetComponent<CharacterController>();
         gravity = this.GetComponent<Gravity>();
     }
@@ -45,7 +52,7 @@ public class Movement : MonoBehaviour
         }
 
 
-        if (isRunning)
+        if (isRunning && playerInformation.isPlayerInState("RunState"))
         {
             characterController.Move(direction * stats.runSpeed * Time.deltaTime);
         }

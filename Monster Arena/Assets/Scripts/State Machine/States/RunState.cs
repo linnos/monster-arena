@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class RunState : BaseState
 {
     public RunState(Player entity, StateMachineManager stateMachine) : base(entity, stateMachine)
@@ -17,6 +19,11 @@ public class RunState : BaseState
     public override void Update()
     {
         base.Update();
+        if(!entity.staminaManager.UseStamina(entity.player.runStaminaCost * Time.deltaTime)){
+            stateMachine.ChangeState(entity.walkState);
+            return;
+        }
+
         if(!entity.movement.isMoving){
             stateMachine.ChangeState(entity.idleState);
         }
