@@ -11,6 +11,7 @@ public class IdleState : BaseState
     public override void Enter()
     {
         base.Enter();
+        entity.movement.zeroMovement();
     }
 
     public override void Exit()

@@ -158,7 +158,9 @@ public class Movement : MonoBehaviour
         }
     }
 
-    public void Dodge(){
-        lockMoveDirection = true;
+      public void zeroMovement()
+    {
+        direction.x = 0f;
+        direction.z = 0f;
     }
 }

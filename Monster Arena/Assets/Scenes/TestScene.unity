@@ -1853,7 +1853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1231dfac919fab419d04dac33276b91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 1166072457}
+  cam: {fileID: 1166072457}
   target: {fileID: 2060055747}
   adjustX: 0
   adjustY: 1.7
@@ -3161,7 +3161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: 89b4e5db5ca4a1349affdabc5a8311e9, type: 2}
-  camera: {fileID: 1166072458}
+  cameraTransform: {fileID: 1166072458}
   gravity: {fileID: 0}
   direction: {x: 0, y: 0, z: 0}
   isMoving: 0
@@ -3169,9 +3169,8 @@ MonoBehaviour:
   playerInformation: {fileID: 339310708}
   nonMoveableStates:
   - Attack
-  - Attack
-  - Dodge
   - Jump
+  - Dodge
 --- !u!114 &2060055746
 MonoBehaviour:
   m_ObjectHideFlags: 0
