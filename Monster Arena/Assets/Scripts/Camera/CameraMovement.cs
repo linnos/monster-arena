@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 public class CameraMovement : MonoBehaviour
 {
-    [SerializeField] public Camera camera;
+    [SerializeField] public Camera cam;
     [SerializeField] public Transform target;
     private Vector3 previousPosition;
 
@@ -28,9 +28,9 @@ public class CameraMovement : MonoBehaviour
     private void LateUpdate()
     {
 
-        Vector3 direction = previousPosition - camera.transform.position - directions;
+        Vector3 direction = previousPosition - cam.transform.position - directions;
 
-        camera.transform.position = target.position;
+        cam.transform.position = target.position;
         //Rotate around x axis. Vertical.
         _rotationXAxis = Mathf.Clamp(_rotationXAxis + direction.y * cameraSpeed * adjustYSpeed, -15, 45);
 
@@ -48,9 +48,9 @@ public class CameraMovement : MonoBehaviour
             // camera.transform.Rotate(new Vector3(1, 0, 0), direction.y * 180);
 
         // camera.transform.Rotate(new Vector3(0, 1, 0), -direction.x * 180, Space.World);
-        camera.transform.Translate(new Vector3(adjustX, adjustY, adjustZ));
+        cam.transform.Translate(new Vector3(adjustX, adjustY, adjustZ));
 
-        previousPosition = camera.transform.position;
+        previousPosition = cam.transform.position;
 
     }
 

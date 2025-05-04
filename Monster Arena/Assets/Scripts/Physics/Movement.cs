@@ -1,7 +1,6 @@
 
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,7 +8,7 @@ public class Movement : MonoBehaviour
 {
     CharacterController characterController;
     public PlayerScriptableObject stats;
-    public Transform camera;
+    public Transform cameraTransform;
     public Gravity gravity;
     public Vector3 direction = Vector3.zero;
     Vector2 input;
@@ -93,8 +92,8 @@ public class Movement : MonoBehaviour
         if(lockMoveDirection || !canMove){
             return;
         }
-        Vector3 newDirection = camera.forward * input.y;
-        newDirection = newDirection + camera.right * input.x;
+        Vector3 newDirection = cameraTransform.forward * input.y;
+        newDirection = newDirection + cameraTransform.right * input.x;
 
         direction.x = newDirection.x * stats.movementSpeed;
         direction.z = newDirection.z * stats.movementSpeed;

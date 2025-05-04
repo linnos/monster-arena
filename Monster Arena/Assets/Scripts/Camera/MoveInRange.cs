@@ -3,7 +3,7 @@ using UnityEngine;
 public class MoveInRange : MonoBehaviour
 {
     [SerializeField][Range(0, 25)] float speed = 1f;
-    [SerializeField][Range(0, 100)] float range = 1f;
+    // [SerializeField][Range(0, 100)] float range = 1f;
     [SerializeField][Range(0, 50)] float initialRise = 1f;
     private float initialYPos = 0f;
 
