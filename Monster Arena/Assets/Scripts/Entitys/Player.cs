@@ -34,6 +34,9 @@ public class Player : Entity
     public Attack1State attackState { get; set; }
     public DodgeState dodgeState { get; set; }
     public DashAttackState dashAttackState { get; set; }
+    public DeathState deathState { get; set; }
+    public KnockedState knockedState { get; set; }
+    public StandUpState standUpState { get; set; }
     #endregion
 
     private void Awake()
@@ -48,6 +51,9 @@ public class Player : Entity
         attackState = new Attack1State(this, stateMachine);
         dodgeState = new DodgeState(this, stateMachine);
         dashAttackState = new DashAttackState(this, stateMachine);
+        deathState = new DeathState(this, stateMachine);
+        knockedState = new KnockedState(this, stateMachine);
+        standUpState = new StandUpState(this, stateMachine);
 
         this.maxHealth = player.health;
         this.staminaManager.maxStamina = player.stamina;
@@ -64,7 +70,9 @@ public class Player : Entity
         stateMachine.OnStateChange += animationController.PlayAnimation;
         stateMachine.OnStateChange += combat.CanDodge;
         stateMachine.OnStateChange += movement.CanMove;
-        combat.OnDodge += dodge;
+        combat.OnDodge += Dodge;
+        this.OnDeath += TriggerDeath;
+        this.OnDamageTaken += TriggerDamage;
         stateMachine.Initialize(idleState);
 
     }
@@ -80,13 +88,13 @@ public class Player : Entity
         stateMachine.currentState.PhysicsUpdate();
     }
 
-    public void dodge()
+    public void Dodge()
     {
-        if(!combat.canDodge)
+        if (!combat.canDodge)
         {
             return;
         }
-        if(!combat.dodgePressed)
+        if (!combat.dodgePressed)
         {
             return;
         }
@@ -94,6 +102,19 @@ public class Player : Entity
         if (staminaManager.UseStamina(player.dodgeStaminaCost))
         {
             stateMachine.ChangeState(dodgeState);
+        }
+    }
+
+    public void TriggerDeath()
+    {
+        stateMachine.ChangeState(deathState);
+    }
+
+    public void TriggerDamage(int damage)
+    {
+        if (damage > 10)
+        {
+            stateMachine.ChangeState(knockedState);
         }
     }
 }

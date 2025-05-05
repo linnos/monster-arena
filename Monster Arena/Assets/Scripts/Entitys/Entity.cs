@@ -18,6 +18,9 @@ public class Entity : MonoBehaviour, IDamageable
     private bool displayDamageText;
     public GameObject damageTextPrefab;
 
+    public Action OnDeath;
+    public Action<int> OnDamageTaken;
+
     protected virtual void Start()
     {
         if (damageTextPrefab != null)
@@ -32,10 +35,8 @@ public class Entity : MonoBehaviour, IDamageable
             healthBar.SetMaxHealth(maxHealth);
         }
     }
-
-    public void Death()
-    {
-        //Trigger death
+public void Death(){
+        OnDeath?.Invoke();
     }
 
     public void TakeDamage(int damage)
@@ -57,14 +58,19 @@ public class Entity : MonoBehaviour, IDamageable
         if (currentHealth <= 0)
         {
             Death();
+            return;
         }
+
+        //Emit an event that we took damage
+        //This can be used to trigger a camera shake or other effects
+        OnDamageTaken?.Invoke(damage);
     }
 
     protected virtual void Update()
     {
         //For testing purposes, press G to take damage
-        // if(Input.GetKeyDown(KeyCode.G)){
-        //     TakeDamage(10);
-        // }
+        if(Input.GetKeyDown(KeyCode.G)){
+            TakeDamage(11);
+        }
     }
 }

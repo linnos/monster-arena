@@ -25,7 +25,7 @@ public class AnimationController : MonoBehaviour
         {
             // Debug.Log("Animation: " + animName);
             currAnim = animName;
-            animator.CrossFade(animName, 0.05f);
+            animator.CrossFade(animName, 0.2f);
         }
     }
 

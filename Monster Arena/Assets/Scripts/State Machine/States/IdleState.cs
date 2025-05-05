@@ -1,5 +1,5 @@
-using Unity.VisualScripting;
-using UnityEngine.InputSystem;
+using UnityEngine;
+using UnityEngine.UIElements;
 
 public class IdleState : BaseState
 {

@@ -1264,7 +1264,7 @@ MonoBehaviour:
   slider: {fileID: 726260059}
   gradient:
     serializedVersion: 2
-    key0: {r: 0.9411765, g: 0.73486453, b: 0, a: 1}
+    key0: {r: 0, g: 0.254717, b: 0.026755977, a: 1}
     key1: {r: 0, g: 1, b: 0.16470589, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
@@ -3171,6 +3171,9 @@ MonoBehaviour:
   - Attack
   - Jump
   - Dodge
+  - Death
+  - Knocked
+  - StandUp
 --- !u!114 &2060055746
 MonoBehaviour:
   m_ObjectHideFlags: 0

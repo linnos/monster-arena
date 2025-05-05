@@ -2,6 +2,9 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
+//TODO: disable hurt boxes for the player while dodging.
+//Hurt box should turn off when dodging and turn back on when the dodge is close to being done.
+//Should be able to dodge in any direction.
 public class DodgeState : BaseState
 {
     public DodgeState(Player entity, StateMachineManager stateMachine) : base(entity, stateMachine)

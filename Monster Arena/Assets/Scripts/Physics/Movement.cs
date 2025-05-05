@@ -4,6 +4,8 @@ using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+//TODO: Refactor this class to be more modular. It is currently doing too much and is hard to read.
+//There is also the issues of not being able to dodge in any direction.
 public class Movement : MonoBehaviour
 {
     CharacterController characterController;
