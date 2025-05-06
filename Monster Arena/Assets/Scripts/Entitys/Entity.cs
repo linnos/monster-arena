@@ -66,6 +66,21 @@ public void Death(){
         OnDamageTaken?.Invoke(damage);
     }
 
+    public void HealDamage(int damage)
+    {
+        currentHealth += damage;
+
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+
+        if(healthBar)
+        {
+            healthBar.SetCurrentHealth(currentHealth);
+        }
+    }
+
     protected virtual void Update()
     {
         //For testing purposes, press G to take damage

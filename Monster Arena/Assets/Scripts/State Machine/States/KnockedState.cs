@@ -18,7 +18,7 @@ public class KnockedState : BaseState
         entity.movement.zeroMovement();
 
         // Play a random knocked animation. Could figure out a way to make this more dynamic later.
-        string[] animationNames = { "Knocked", "Knocked2" };
+        string[] animationNames = { "Knocked", "Knocked2", "Knocked3" };
         entity.animationController.PlayAnimation(animationNames[Random.Range(0, animationNames.Length)]);
     }
 

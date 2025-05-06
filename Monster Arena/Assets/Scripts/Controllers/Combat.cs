@@ -11,6 +11,8 @@ public class Combat : MonoBehaviour
     public bool attackingReleased = true;
     public bool dodgePressed = false;
 
+    public bool useItemPressed = false;
+
     //Can the character dodge right now?
     public bool canDodge { get; set; }
 
@@ -62,6 +64,22 @@ public class Combat : MonoBehaviour
         else if (context.canceled)
         {
             dodgePressed = false;
+        }
+    }
+
+    public void Use_Item_Event(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            useItemPressed = true;
+        }
+        else if (context.performed)
+        {
+            //Use item
+        }
+        else if (context.canceled)
+        {
+            useItemPressed = false;
         }
     }
 

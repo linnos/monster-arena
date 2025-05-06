@@ -29,7 +29,11 @@ public class IdleState : BaseState
         else if(entity.combat.attackingPressed){
             stateMachine.ChangeState(entity.attackState);
         }
-
+        //TODO: Need to figure out a way to make it so this will not happen if the player
+        //has full health.
+        else if(entity.combat.useItemPressed && entity.inventory.PrepareItem()){
+            stateMachine.ChangeState(entity.useItemState);
+        }
     }
 
     public override void PhysicsUpdate()

@@ -12,6 +12,7 @@ public class Player : Entity
     public Combat combat;
     public PlayerScriptableObject player;
     public StaminaManager staminaManager;
+    public Inventory inventory;
     #endregion
 
     #region colliders
@@ -37,6 +38,7 @@ public class Player : Entity
     public DeathState deathState { get; set; }
     public KnockedState knockedState { get; set; }
     public StandUpState standUpState { get; set; }
+    public UseItemState useItemState { get; set; }
     #endregion
 
     private void Awake()
@@ -54,6 +56,7 @@ public class Player : Entity
         deathState = new DeathState(this, stateMachine);
         knockedState = new KnockedState(this, stateMachine);
         standUpState = new StandUpState(this, stateMachine);
+        useItemState = new UseItemState(this, stateMachine);
 
         this.maxHealth = player.health;
         this.staminaManager.maxStamina = player.stamina;
@@ -73,6 +76,7 @@ public class Player : Entity
         combat.OnDodge += Dodge;
         this.OnDeath += TriggerDeath;
         this.OnDamageTaken += TriggerDamage;
+        inventory.OnItemUsed += this.HealDamage; 
         stateMachine.Initialize(idleState);
 
     }

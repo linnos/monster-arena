@@ -1517,6 +1517,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1a7d7a89df2f441428d547f746fb8d23, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2060055751}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1a7d7a89df2f441428d547f746fb8d23, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2060055752}
   m_SourcePrefab: {fileID: 100100000, guid: 1a7d7a89df2f441428d547f746fb8d23, type: 3}
 --- !u!1 &605708578 stripped
 GameObject:
@@ -4340,6 +4343,7 @@ MonoBehaviour:
   combat: {fileID: 0}
   player: {fileID: 11400000, guid: 89b4e5db5ca4a1349affdabc5a8311e9, type: 2}
   staminaManager: {fileID: 2060055751}
+  inventory: {fileID: 2060055752}
   swordTriggerDamage: {fileID: 605708583}
   swordCollider: {fileID: 605708580}
   kickDamage: {fileID: 1170130560}
@@ -4443,7 +4447,19 @@ MonoBehaviour:
     m_ActionId: 6c2ab1b8-8984-453a-af3d-a3c78ae1679a
     m_ActionName: 'Player/Attack[/Mouse/leftButton,/Keyboard/enter]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2060055748}
+        m_TargetAssemblyTypeName: Combat, Assembly-CSharp
+        m_MethodName: Use_Item_Event
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 852140f2-7766-474d-8707-702459ba45f3
     m_ActionName: 'Player/Interact[/Keyboard/e]'
   - m_PersistentCalls:
@@ -4561,6 +4577,7 @@ MonoBehaviour:
   - Death
   - Knocked
   - StandUp
+  - UseItem
 --- !u!114 &2060055746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4595,6 +4612,7 @@ MonoBehaviour:
   attackingPressed: 0
   attackingReleased: 1
   dodgePressed: 0
+  useItemPressed: 0
   dodgeableStates:
   - Idle
   - Walk
@@ -4648,6 +4666,19 @@ MonoBehaviour:
   staminaRegenRate: 35
   staminaRegenCooldown: 5
   staminaBar: {fileID: 1775643038}
+--- !u!114 &2060055752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060055735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15bed5f6af19e884280c8965de81e4c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numOfPotions: 3
 --- !u!1 &2117605980
 GameObject:
   m_ObjectHideFlags: 0
