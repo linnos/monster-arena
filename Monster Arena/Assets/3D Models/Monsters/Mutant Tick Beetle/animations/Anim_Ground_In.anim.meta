@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1cf812d73af2f2a41985014dd6c36985
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 295725
+  packageName: Mutant Tick Beetle
+  packageVersion: 1.0
+  assetPath: Assets/Mutant Tick Beetle/animations/Anim_Ground_In.anim
+  uploadId: 727432

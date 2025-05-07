@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 5aabc3ceca73da1408dfa99381daad57
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 295725
+  packageName: Mutant Tick Beetle
+  packageVersion: 1.0
+  assetPath: Assets/Mutant Tick Beetle/animations/Anim_Run.anim
+  uploadId: 727432

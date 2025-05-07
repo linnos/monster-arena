@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6ea22bfaae207cc44bcc8025377e04d4
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 295725
+  packageName: Mutant Tick Beetle
+  packageVersion: 1.0
+  assetPath: Assets/Mutant Tick Beetle/animations/Anim_Walk.anim
+  uploadId: 727432

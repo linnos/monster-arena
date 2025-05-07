@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 312aff8f7fa77f04ca09969291ff7b9b
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 295725
+  packageName: Mutant Tick Beetle
+  packageVersion: 1.0
+  assetPath: Assets/Mutant Tick Beetle/animations/Mutant Tick Beetle Animator Controller.controller
+  uploadId: 727432

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e3bf6d7c1fcde514985e30d7aa4466fa
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 295725
+  packageName: Mutant Tick Beetle
+  packageVersion: 1.0
+  assetPath: Assets/Mutant Tick Beetle/animations/Anim_Hit_02.anim
+  uploadId: 727432

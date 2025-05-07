@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 24aa453af4fbb1047aba9c864632e9e3
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 295725
+  packageName: Mutant Tick Beetle
+  packageVersion: 1.0
+  assetPath: Assets/Mutant Tick Beetle/animations/Anim_Turn L.anim
+  uploadId: 727432

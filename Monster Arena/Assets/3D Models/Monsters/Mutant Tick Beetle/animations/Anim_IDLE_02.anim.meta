@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b6a343871b8ec83429260277dc2d5b0a
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 295725
+  packageName: Mutant Tick Beetle
+  packageVersion: 1.0
+  assetPath: Assets/Mutant Tick Beetle/animations/Anim_IDLE_02.anim
+  uploadId: 727432

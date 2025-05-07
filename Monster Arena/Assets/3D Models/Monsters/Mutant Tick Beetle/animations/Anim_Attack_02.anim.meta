@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 8f445aae9b6fd994e8b4075fb4d65afb
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 295725
+  packageName: Mutant Tick Beetle
+  packageVersion: 1.0
+  assetPath: Assets/Mutant Tick Beetle/animations/Anim_Attack_02.anim
+  uploadId: 727432
