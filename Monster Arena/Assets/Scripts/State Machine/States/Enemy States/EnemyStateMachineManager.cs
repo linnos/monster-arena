@@ -1,15 +1,15 @@
 using System;
 using UnityEngine;
 
-public class StateMachineManager
+public class EnemyStateMachineManager
 {
-    public BaseState currentState { get; set; }
+    public EnemyBaseState currentState { get; set; }
     public Action<string> OnStateChange;
 
     //
     protected string stateName;
 
-    public void Initialize(BaseState startingState)
+    public void Initialize(EnemyBaseState startingState)
     {
         ChangeStateEvent(startingState);
 
@@ -29,7 +29,7 @@ public class StateMachineManager
         currentState.Update();
     }
 
-    public void ChangeState(BaseState newState){
+    public void ChangeState(EnemyBaseState newState){
         currentState.Exit();
         currentState = newState;
         ChangeStateEvent(currentState);
@@ -38,7 +38,7 @@ public class StateMachineManager
 
     //A helper method to send out an event when the state is changed.
     //Sends out a string of state name without the "State" portion
-    private void ChangeStateEvent(BaseState state)
+    private void ChangeStateEvent(EnemyBaseState state)
     {
         stateName = state.GetType().FullName;
 
