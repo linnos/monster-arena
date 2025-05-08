@@ -17,7 +17,12 @@ public class TriggerDamage : MonoBehaviour
         
         Debug.Log(other.gameObject.name);
         Entity damageable = other.gameObject.GetComponent<Entity>();
+        ReferenceParent referenceParent = other.gameObject.GetComponent<ReferenceParent>();
         
+        if(referenceParent != null){
+            damageable = referenceParent.parentObject.GetComponent<Entity>();
+        }
+
         if(damageable == null){
             return;
         }
@@ -25,7 +30,7 @@ public class TriggerDamage : MonoBehaviour
             return;
         }
 
-        damageable.TakeDamage(damage);
+        damageable.TakeDamage(damage, other.transform.position);
         damageables.Add(damageable);
         
     }

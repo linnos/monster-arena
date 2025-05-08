@@ -39,11 +39,15 @@ public void Death(){
         OnDeath?.Invoke();
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage,Vector3 spawnPos = default(Vector3))
     {
         if (displayDamageText)
         {
-            Vector3 spawnPos = transform.position;
+            //If no spawn position is provided, use the entity's position
+            if (spawnPos == default(Vector3))
+            {
+                spawnPos = transform.position;
+            }
             spawnPos.x += UnityEngine.Random.Range(-1f, 1f);
             GameObject prefab = Instantiate(damageTextPrefab, spawnPos, Quaternion.identity);
             prefab.GetComponent<UpdateText>().textToDisplay = damage.ToString();
