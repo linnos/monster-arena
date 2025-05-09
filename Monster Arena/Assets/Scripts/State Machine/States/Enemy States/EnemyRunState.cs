@@ -12,7 +12,7 @@ public class EnemyRunState : EnemyBaseState
     public override void Enter()
     {
         base.Enter();
-        runTime = Random.Range(3, 8);
+        runTime = Random.Range(1, 3);
     }
 
     public override void Exit()

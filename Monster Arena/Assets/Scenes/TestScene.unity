@@ -297,8 +297,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentObject: {fileID: 1286069870}
---- !u!136 &19716100
-CapsuleCollider:
+--- !u!65 &19716103
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -315,11 +315,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.55
-  m_Height: 0.08
-  m_Direction: 1
-  m_Center: {x: 0, y: -0.1, z: 0}
+  serializedVersion: 3
+  m_Size: {x: 1.12, y: 0.92, z: 0.8}
+  m_Center: {x: 0, y: -0.18, z: 0}
 --- !u!1 &33744873
 GameObject:
   m_ObjectHideFlags: 0
@@ -7058,7 +7056,7 @@ PrefabInstance:
       addedObject: {fileID: 19716099}
     - targetCorrespondingSourceObject: {fileID: 2230704991212844991, guid: 0bb045df5f980ff42a5198bda74fbb36, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 19716100}
+      addedObject: {fileID: 19716103}
     - targetCorrespondingSourceObject: {fileID: 7674903275822703725, guid: 0bb045df5f980ff42a5198bda74fbb36, type: 3}
       insertIndex: -1
       addedObject: {fileID: 481866708}
