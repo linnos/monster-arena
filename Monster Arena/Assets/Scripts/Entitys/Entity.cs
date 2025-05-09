@@ -1,5 +1,7 @@
 using System;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Entity : MonoBehaviour, IDamageable
 {
@@ -90,6 +92,9 @@ public void Death(){
         //For testing purposes, press G to take damage
         if(Input.GetKeyDown(KeyCode.G)){
             TakeDamage(11);
+        }
+        if(Input.GetKeyDown(KeyCode.R)){
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }

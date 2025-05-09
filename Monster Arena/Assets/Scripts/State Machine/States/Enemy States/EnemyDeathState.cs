@@ -11,6 +11,8 @@ public class EnemyDeathState : EnemyBaseState
     public override void Enter()
     {
         base.Enter();
+        entity.audioSource.Stop();
+        entity.audioSource.PlayOneShot(entity.victoryAudioSource);
     }
 
     public override void Exit()

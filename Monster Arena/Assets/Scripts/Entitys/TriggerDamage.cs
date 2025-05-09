@@ -34,4 +34,9 @@ public class TriggerDamage : MonoBehaviour
         damageables.Add(damageable);
         
     }
+
+    public void ResetDamageables()
+    {
+        damageables = new List<IDamageable>();
+    }
 }

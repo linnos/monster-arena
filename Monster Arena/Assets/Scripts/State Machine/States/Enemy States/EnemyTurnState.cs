@@ -21,6 +21,10 @@ public class EnemyTurnState : EnemyBaseState
     public override void Update()
     {
         base.Update();
+        if (Vector3.Angle(entity.transform.forward, entity.playerTarget.transform.position - entity.transform.position) < entity.angle)
+        {
+            entity.ChangeToRandomAttackState();
+        }
     }
 
     public override void PhysicsUpdate()
