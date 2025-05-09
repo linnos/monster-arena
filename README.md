@@ -19,3 +19,7 @@ R1 = Run
 South Button = Dodge
 Left Button = attack
 North Button = Use a health potion
+
+Cheats:
+Press G to see damage numbers
+Press R to restart the scene
